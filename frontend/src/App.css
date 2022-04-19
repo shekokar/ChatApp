@@ -2,7 +2,7 @@
 .App {
     min-height: 100vh;
     display: flex;
-    background-color: #00408a;
+    background-color: #0080FF;
 }
 
 ::-webkit-scrollbar {
