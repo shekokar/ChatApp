@@ -8,6 +8,7 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import axios from 'axios';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../userAvatar/UserListItem';
+import { getSender } from '../../config/ChatLogics';
 
 const SideDrawer = () => {
 
@@ -132,7 +133,22 @@ const SideDrawer = () => {
                     <MenuButton p={1}>
                         <BellIcon fontSize="2xl" m={1} />
                     </MenuButton>
-                    {/* <MenuList></MenuList> */}
+                    <MenuList pl={2}>
+                        {!notification.length && "No New Messages"}
+                        {notification.map((notif) => (
+                            <MenuItem
+                            key={notif._id}
+                            onClick={() => {
+                                setSelectedChat(notif.chat);
+                                setNotification(notification.filter((n) => n !== notif));
+                            }}
+                            >
+                            {notif.chat.isGroupChat
+                                ? `New Message in ${notif.chat.chatName}`
+                                : `New Message from ${getSender(user, notif.chat.users)}`}
+                            </MenuItem>
+                        ))} 
+                    </MenuList>
                 </Menu>
                 <Menu>
                      <MenuButton as={Button} bg="white" rightIcon={<ChevronDownIcon />}>
