@@ -58,6 +58,7 @@ const SideDrawer = () => {
 
             setLoading(false);
             setSearchResult(data);
+            console.log(data);
 
         } catch (error) {
             toast({
@@ -172,11 +173,12 @@ const SideDrawer = () => {
                         <ChatLoading />
                     ) : (
                         // <span>Results</span>)
-                        searchResult?.map((user) => (
+                            searchResult?.map((user1) => (
+                            console.log(user1),
                             <UserListItem
-                            key={user._id}
-                            user={user}
-                            handleFunction={() => accessChat(user._id)}
+                            key={user1._id}
+                            user={user1}
+                            handleFunction={() => accessChat(user1._id)}
                             />
                         ))
                         )
@@ -189,4 +191,4 @@ const SideDrawer = () => {
     </>
 }
 
-export default SideDrawer
+export default SideDrawer;
