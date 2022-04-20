@@ -99,6 +99,8 @@ const SideDrawer = () => {
         }
     }
 
+    const loading_number = 12;
+
 
 
     return <>
@@ -170,7 +172,7 @@ const SideDrawer = () => {
                         
                     </Box>
                     {loading ? (
-                        <ChatLoading />
+                        <ChatLoading loading_number={loading_number}/>
                     ) : (
                         // <span>Results</span>)
                             searchResult?.map((user1) => (
