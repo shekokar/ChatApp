@@ -14,6 +14,8 @@ import {
   Image,
 } from "@chakra-ui/react";
 
+import anon from "../../public_images/anonymous-icon.jpg";
+
 const ProfileModal = ({ user, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -45,9 +47,10 @@ const ProfileModal = ({ user, children }) => {
             <Image
               borderRadius="full"
               boxSize="150px"
-              src={user.pic}
+              src={anon}
               alt={user.name}
             />
+            {console.log(user)}
             <Text
               fontSize={{ base: "28px", md: "30px" }}
               fontFamily="Work sans"
